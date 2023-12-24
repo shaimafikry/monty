@@ -11,7 +11,7 @@ void push_monty(stack_t **stack, char *value,  unsigned int line_number)
 /*handling errors*/
 if (value == NULL || (isdigit(atoi(value))))
 {
-	fprintf(stderr, "L %d: usage: push integer\n", line_number);
+	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
 }
 add_node_first(&(*stack), atoi(value));
@@ -48,7 +48,7 @@ void pint_monty(stack_t **stack, unsigned int line_number)
 {
 if (stack == NULL)
 {
-	fprintf(stderr, "L<%d>: can't pint, stack empty", line_number);
+	fprintf(stderr, "L%d: can't pint, stack empty", line_number);
 	exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
