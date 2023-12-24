@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 char *orders; /*to store from getline*/
 char  *command[2];/* for tokenization*/
 size_t size = 0;
-unsigned int  line_number = 0;
+unsigned int  line_number = 1;
 int get_return;/*to hold return value of getline*/
 FILE *monty_file;
 char *file_name = argv[1];
@@ -34,7 +34,7 @@ return (EXIT_FAILURE);
 monty_file = fopen(file_name, "r");
 if (!monty_file)
 {
-fprintf(stderr, "Error: Can't open %s\n", file_name);
+fprintf(stderr, "Error: Can't open file %s\n", file_name);
 exit(EXIT_FAILURE);
 }
 /*program*/
