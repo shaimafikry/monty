@@ -15,21 +15,23 @@ int i = 0;
 instruction_t monty_func[] = {
 				{"pall", pall_monty},
 				{"pint", pint_monty},
+				{"nop",nop_monty},
 				{NULL, NULL}
 				};
-if (head == NULL)
-{
-fprintf(stderr, "list is not found\n");
-return;
-}
 
 while (monty_func[i].opcode != NULL)
 {
-if (strcmp(command, monty_func[i].opcode) == 0)
+	i++;
+}
+i = 0;
+while (monty_func[i].opcode != NULL)
 {
-monty_func[i].f(&(*head), number);
+	if (strcmp(command, monty_func[i].opcode) == 0)
+	{
+		monty_func[i].f(&(*head), number);
+	}
+	i++;
 }
-i++;
-}
-
+fprintf(stderr, "L%d: unknown instruction %s\n", number, command);
+exit(EXIT_FAILURE);
 }

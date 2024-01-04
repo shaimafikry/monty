@@ -6,11 +6,9 @@
  * @argv: file names
  * Return: 0 in success
 */
-
 int main(int argc, char *argv[])
 {
-char *orders; /*to store from getline*/
-char  *command[2];/* for tokenization*/
+char *orders, *command[2];/* for tokenization*/
 size_t size = 0;
 unsigned int  line_number = 1;
 int get_return;/*to hold return value of getline*/
@@ -21,23 +19,14 @@ stack_t **list;
 list = malloc(sizeof(stack_t *));
 if (list == NULL)
 {
-fprintf(stderr, "Error: malloc failed\n");
-exit(EXIT_FAILURE);
+fprintf(stderr, "Error: malloc failed\n"), exit(EXIT_FAILURE);
 }
 *list = NULL;
-/*handling errors*/
 if (argc != 2)
-{
-fprintf(stderr, "USAGE: monty file\n");
-return (EXIT_FAILURE);
-}
+	fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 monty_file = fopen(file_name, "r");
 if (!monty_file)
-{
-fprintf(stderr, "Error: Can't open file %s\n", file_name);
-exit(EXIT_FAILURE);
-}
-/*program*/
+	fprintf(stderr, "Error: Can't open file %s\n", file_name), exit(EXIT_FAILURE);
 while (1)
 {
 get_return = getline(&orders, &size, monty_file);
@@ -56,19 +45,7 @@ else
 {
 	line_token(orders, command);
 	line_number++;
-	if (strcmp(command[0], "push") == 0)
-	{
-		push_monty(&(*list), command[1], line_number);
+	filter_input(&(*list), command, line_number); }
 	}
-	else
-	{
-		exe_monty(command[0], &(*list), line_number);
-
-	}
-}
-}
 fclose(monty_file);
-
-return (0);
-
-}
+return (0); }

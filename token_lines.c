@@ -18,7 +18,5 @@ while (token != NULL)
 	i++;
 
 }
-
 command[i] = NULL;
-
 }

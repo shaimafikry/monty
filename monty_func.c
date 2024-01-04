@@ -53,3 +53,11 @@ if (stack == NULL)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * 
+*/
+void nop_monty(stack_t **stack, unsigned int line_number)
+{
+	return;
+}
