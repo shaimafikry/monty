@@ -55,7 +55,7 @@ if (stack == NULL)
 }
 
 /**
- * 
+ * nop_monty - do nothing
 */
 void nop_monty(__attribute__((unused)) stack_t **stack,__attribute__((unused))  unsigned int line_number)
 {
