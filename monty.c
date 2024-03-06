@@ -48,8 +48,9 @@ while (1)
 	else
 	{
 		line_token(orders, command);
+		filter_input(&(*list), command, line_number);
 		line_number++;
-		filter_input(&(*list), command, line_number); }
+		}
 	}
 fclose(monty_file);
 return (0);

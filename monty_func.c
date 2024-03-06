@@ -17,10 +17,14 @@ if (value == NULL)
 }
 for ( i = 0; value[i]; i++)
 {
-	if (value[i] < 48 ||  value[i] > 57)
+	
+	if (i == 0 && value[i] == '-')
+		continue;
+	if (!isdigit(value[i]))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
+		break;
+		
 	}
 
 }
