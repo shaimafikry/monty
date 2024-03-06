@@ -9,10 +9,21 @@
 void push_monty(stack_t **stack, char *value,  unsigned int line_number)
 {
 /*handling errors*/
-if (value == NULL || (isdigit(atoi(value))))
+int i;
+if (value == NULL)
 {
 	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
+}
+print(%s, value);
+for ( i = 0; value[i]; i++)
+{
+	if (value[i] < 48 &&  value[i] > 57)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
 }
 add_node_first(&(*stack), atoi(value));
 }

@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 char *orders, *command[2];/* for tokenization*/
 size_t size = 0;
 
-unsigned int  line_number = 0; /*to hold line numbers*/
+unsigned int  line_number = 1; /*to hold line numbers*/
 int get_return;/*to hold return value of getline*/
 FILE *monty_file;
 char *file_name = argv[1];
@@ -36,10 +36,10 @@ while (1)
 	get_return = getline(&orders, &size, monty_file);
 	if (get_return == -1)
 	{
-		free(orders);
 		break;
 	}
-	orders[strlen(orders)] = '\0';
+	/*holds the whole line from getline*/
+	orders[strlen(orders)] = '\0';/*to make it a seperate line*/
 	if (orders[0] == '\0' || orders[0] == '\n')
 	{
 		free(orders);
