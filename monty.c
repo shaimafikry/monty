@@ -45,6 +45,8 @@ while (1)
 			continue; }
 		filter_input(&(*list), command, line_number), line_number++; } }
 free(orders);
-free(list);
+free_list(&(*list));
+free(monty_file);
+free(file_name);
 fclose(monty_file);
 return (0); }

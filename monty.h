@@ -42,4 +42,5 @@ void push_monty(stack_t **head, char *, unsigned int);
 void pall_monty(stack_t **head, unsigned int);
 void pint_monty(stack_t **head, unsigned int);
 void nop_monty(stack_t **stack, unsigned int line_number);
+void free_list(stack_t **head);
 #endif
