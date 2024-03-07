@@ -123,13 +123,24 @@ void swap_monty(stack_t **head, unsigned int line_number)
 */
 void add_monty(stack_t **head, unsigned int line_number)
 {
-	if (*head == NULL)
+	stack_t *current;
+	int result;
+
+	if (*head == NULL || (*head)->next == NULL)
 	{
-	fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+	fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 	exit(EXIT_FAILURE);
 	}
-
+	result = (*head)->n + (*head)->next->n;
+	current = (*head);
+	(*head) = current->next;
+	(*head)->n = result;
+	if (current->next != NULL)
+		current->next->prev = NULL;
+	free(current);
 }
+
+
 
 
 /**
