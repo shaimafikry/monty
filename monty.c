@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 /* to use at get line function*/
-char *orders, *command[3];/* for tokenization*/
+char *orders, *command[1024];/* for tokenization*/
 size_t size = 0;
 unsigned int  line_number = 1; /*to hold line numbers*/
 FILE *monty_file;

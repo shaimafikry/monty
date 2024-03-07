@@ -5,7 +5,7 @@
  * @command: array to take input
  * Return: no return
 */
-void line_token(char *lines, char *command[3])
+void line_token(char *lines, char *command[1024])
 {
 char *token;
 int i = 0;
@@ -19,6 +19,5 @@ while (token != NULL)
 	i++;
 
 }
-/*printf("this is command all after tokenizations %s\n", *command);*/
 command[i] = NULL;
 }

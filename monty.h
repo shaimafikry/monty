@@ -34,7 +34,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void line_token(char *lines, char *command[3]);
+void line_token(char *lines, char *command[1024]);
 void filter_input(stack_t **head, char *command[3], unsigned int line_number);
 void add_node_first(stack_t **head, int);
 void exe_monty(char *, stack_t **, unsigned int);
