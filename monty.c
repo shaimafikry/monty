@@ -34,7 +34,6 @@ while (1)
 	orders[strlen(orders)] = '\0';/*to make it a seperate line*/
 	if (orders[0] == '\0' || orders[0] == '\n')
 	{
-		free(orders);
 		line_number++;
 		continue; }
 	else
