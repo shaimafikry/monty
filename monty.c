@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 /* to use at get line function*/
-char *orders, *command[2];/* for tokenization*/
+char *orders, *command[3];/* for tokenization*/
 size_t size = 0;
 
 unsigned int  line_number = 1; /*to hold line numbers*/
@@ -43,14 +43,20 @@ while (1)
 	if (orders[0] == '\0' || orders[0] == '\n')
 	{
 		free(orders);
+		line_number++;
 		continue;
 	}
 	else
 	{
 		line_token(orders, command);
+		if (command[0] == NULL)
+		{
+			line_number++;
+			continue;
+		}
 		filter_input(&(*list), command, line_number);
 		line_number++;
-		}
+	}
 	}
 fclose(monty_file);
 return (0);
