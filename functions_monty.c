@@ -68,6 +68,27 @@ if (*stack == NULL)
 }
 
 /**
+* pop_monty - removes the top element of the stack.
+ * @stack: the stack
+ * @line_number: theline number
+ * Return: no return
+*/
+void pop_monty(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current;
+
+	if (*stack == NULL)
+	{
+	fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+	exit(EXIT_FAILURE);
+	}
+	current = (*stack);
+	if (current->next != NULL)
+		current->next->prev = NULL;
+	(*stack) = current->next;
+	free(current);
+}
+/**
  * nop_monty - do nothing
  * @stack: linked list start
  * @line_number: line number

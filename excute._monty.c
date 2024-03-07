@@ -16,6 +16,7 @@ instruction_t monty_func[] = {
 				{"pall", pall_monty},
 				{"pint", pint_monty},
 				{"nop", nop_monty},
+				{"pop", pop_monty},
 				{NULL, NULL}
 				};
 while (monty_func[i].opcode != NULL)
