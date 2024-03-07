@@ -43,7 +43,8 @@ while (1)
 		{
 			line_number++;
 			continue; }
-		filter_input(&(*list), command, line_number), line_number++; } }
+		filter_input(&(*list), command, line_number), line_number++; }
+	}
 fclose(monty_file);
 free(orders);
 free_list(&(*list));

@@ -12,6 +12,7 @@ void push_monty(stack_t **head, char *value,  unsigned int line_number)
 int i;
 if (value == NULL)
 {
+	free_list(&(*head));
 	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
 }
@@ -22,6 +23,7 @@ for (i = 0; value[i]; i++)
 		continue;
 	if (!isdigit(value[i]))
 	{
+		free_list(&(*head));
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
@@ -41,7 +43,9 @@ __attribute__((unused)) unsigned int line_number)
 {
 stack_t *current;
 if (head == NULL)
+{
 	return;
+}
 
 current = *head;
 
@@ -84,8 +88,6 @@ void pop_monty(stack_t **head, unsigned int line_number)
 	}
 	current = (*head);
 	(*head) = current->next;
-	if (current->next != NULL)
-		current->next->prev = NULL;
 	free(current);
 }
 
@@ -152,5 +154,5 @@ void add_monty(stack_t **head, unsigned int line_number)
 void nop_monty(__attribute__((unused)) stack_t **head,
 __attribute__((unused))  unsigned int line_number)
 {
-
+	free_list(&(*head));
 }
