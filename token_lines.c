@@ -7,7 +7,7 @@
 */
 void line_token(char *lines, char *command[1024])
 {
-char *token;
+char *token = NULL;
 int i = 0;
 
 token = strtok(lines, " \t\n");

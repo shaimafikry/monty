@@ -41,7 +41,7 @@ add_node_first(&(*head), atoi(value));
 void pall_monty(stack_t **head,
 __attribute__((unused)) unsigned int line_number)
 {
-stack_t *current;
+stack_t *current = NULL;
 if (head == NULL)
 {
 	return;
@@ -99,7 +99,7 @@ void pop_monty(stack_t **head, unsigned int line_number)
 */
 void swap_monty(stack_t **head, unsigned int line_number)
 {
-	stack_t *first, *second;
+	stack_t *first = NULL, *second = NULL;
 
 	if (*head == NULL|| (*head)->next == NULL)
 	{
@@ -125,8 +125,8 @@ void swap_monty(stack_t **head, unsigned int line_number)
 */
 void add_monty(stack_t **head, unsigned int line_number)
 {
-	stack_t *current;
-	int result;
+	stack_t *current = NULL;
+	int result = 0;
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
