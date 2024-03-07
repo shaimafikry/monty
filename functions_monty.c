@@ -154,5 +154,4 @@ void add_monty(stack_t **head, unsigned int line_number)
 void nop_monty(__attribute__((unused)) stack_t **head,
 __attribute__((unused))  unsigned int line_number)
 {
-	free_list(&(*head));
 }
