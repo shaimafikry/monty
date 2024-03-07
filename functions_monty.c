@@ -23,8 +23,7 @@ for (i = 0; value[i]; i++)
 	if (!isdigit(value[i]))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		return;
-
+		exit(EXIT_FAILURE);
 	}
 
 }
