@@ -20,4 +20,5 @@ while (token != NULL)
 
 }
 command[i] = NULL;
+free(token);
 }

@@ -17,8 +17,7 @@ void free_list(stack_t **head)
 	{
 		next = current->next;
 		free(current);
-		current =next;
+		current = next;
 	}
-	free(*head);
-
+	free(head);
 }
