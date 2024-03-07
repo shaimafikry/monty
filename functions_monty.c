@@ -84,13 +84,9 @@ void pop_monty(stack_t **stack, unsigned int line_number)
 	}
 
 	current = (*stack);
+	(*stack) = current->next;
 	if (current->next != NULL)
 		current->next->prev = NULL;
-	else
-	{
-		return;
-	}
-	(*stack) = current->next;
 	free(current);
 }
 /**

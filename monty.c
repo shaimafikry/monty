@@ -9,10 +9,10 @@
 int main(int argc, char *argv[])
 {
 /* to use at get line function*/
-char *orders, *command[1024];/* for tokenization*/
+char *orders = NULL, *command[1024];/* for tokenization*/
 size_t size = 0;
 unsigned int  line_number = 1; /*to hold line numbers*/
-FILE *monty_file;
+FILE *monty_file = NULL;
 char *file_name = argv[1];
 stack_t **list;
 
