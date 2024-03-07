@@ -21,10 +21,4 @@ while (token != NULL)
 }
 /*printf("this is command all after tokenizations %s\n", *command);*/
 command[i] = NULL;
-/**
-* printf("this is command 1 after tokenizations %s\n", command[0]);
-* printf("this is command 2 after tokenizations %s\n", command[1]);
-* printf("this is command 3 after tokenizations %s\n", command[2]);
-*/
-
 }

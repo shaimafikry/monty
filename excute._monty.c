@@ -26,7 +26,7 @@ while (monty_func[i].opcode != NULL)
 		return;
 	}
 	i++;
-	
+
 }
 fprintf(stderr, "L%d: unknown instruction %s\n", number, command);
 exit(EXIT_FAILURE);

@@ -2,9 +2,9 @@ first :
 we save the file in .m extention
 the excute order will be ./file_name mont_file_name
 if count is only 2 and the argv[1] is montry file
-	excute 
+	excute
 else : return stderr
-fopen file 
+fopen file
 getlinev" reads everyline"
 check if the line equals to montry orders
 get the function the equal to monty order

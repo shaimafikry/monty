@@ -35,10 +35,10 @@ typedef struct instruction_s
 } instruction_t;
 
 void line_token(char *lines, char *command[3]);
-void filter_input (stack_t **head, char *command[3], unsigned int line_number);
+void filter_input(stack_t **head, char *command[3], unsigned int line_number);
 void add_node_first(stack_t **head, int);
-void exe_monty(char *, stack_t ** ,  unsigned int);
-void push_monty(stack_t **head,char *, unsigned int);
+void exe_monty(char *, stack_t **, unsigned int);
+void push_monty(stack_t **head, char *, unsigned int);
 void pall_monty(stack_t **head, unsigned int);
 void pint_monty(stack_t **head, unsigned int);
 void nop_monty(stack_t **stack, unsigned int line_number);

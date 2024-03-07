@@ -11,18 +11,14 @@ int main(int argc, char *argv[])
 /* to use at get line function*/
 char *orders, *command[3];/* for tokenization*/
 size_t size = 0;
-
 unsigned int  line_number = 1; /*to hold line numbers*/
-int get_return;/*to hold return value of getline*/
 FILE *monty_file;
 char *file_name = argv[1];
 stack_t **list;
 
 list = malloc(sizeof(stack_t *));
 if (list == NULL)
-{
 	fprintf(stderr, "Error: malloc failed\n"), exit(EXIT_FAILURE);
-}
 *list = NULL;
 if (argc != 2)
 	fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
@@ -33,31 +29,22 @@ if (!monty_file)
 
 while (1)
 {
-	get_return = getline(&orders, &size, monty_file);
-	if (get_return == -1)
-	{
+	if ((getline(&orders, &size, monty_file) == -1))
 		break;
-	}
-	/*holds the whole line from getline*/
 	orders[strlen(orders)] = '\0';/*to make it a seperate line*/
 	if (orders[0] == '\0' || orders[0] == '\n')
 	{
 		free(orders);
 		line_number++;
-		continue;
-	}
+		continue; }
 	else
 	{
 		line_token(orders, command);
 		if (command[0] == NULL)
 		{
 			line_number++;
-			continue;
-		}
-		filter_input(&(*list), command, line_number);
-		line_number++;
-	}
-	}
+			continue; }
+		filter_input(&(*list), command, line_number), line_number++; } }
+free(orders);
 fclose(monty_file);
-return (0);
-}
+return (0); }

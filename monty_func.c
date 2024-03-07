@@ -15,16 +15,16 @@ if (value == NULL)
 	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
 }
-for ( i = 0; value[i]; i++)
+for (i = 0; value[i]; i++)
 {
-	
+
 	if (i == 0 && value[i] == '-')
 		continue;
 	if (!isdigit(value[i]))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		return;
-		
+
 	}
 
 }
@@ -70,9 +70,12 @@ if (stack == NULL)
 
 /**
  * nop_monty - do nothing
+ * @stack: linked list start
+ * @line_number: line number
+ * Return: no return
 */
-void nop_monty(__attribute__((unused)) stack_t **stack,__attribute__((unused))  unsigned int line_number)
+void nop_monty(__attribute__((unused)) stack_t **stack,
+__attribute__((unused))  unsigned int line_number)
 {
 
-	return;
 }
