@@ -108,7 +108,8 @@ void swap_monty(stack_t **head, unsigned int line_number)
 	second = (*head)->next;
 	first->next = second->next;
 	first->prev = second;
-	second->next->prev = first;
+	if (second->next != NULL)
+		second->next->prev = first;
 	second->prev = NULL;
 	second->next = first;
 	(*head) = second;
