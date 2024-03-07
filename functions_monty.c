@@ -75,7 +75,7 @@ if (*head == NULL)
 */
 void pop_monty(stack_t **head, unsigned int line_number)
 {
-	stack_t *current;
+	stack_t *current = NULL;
 
 	if (*head == NULL)
 	{
@@ -86,7 +86,6 @@ void pop_monty(stack_t **head, unsigned int line_number)
 	(*head) = current->next;
 	if (current->next != NULL)
 		current->next->prev = NULL;
-	current = (*head);
 	free(current);
 }
 
@@ -98,13 +97,21 @@ void pop_monty(stack_t **head, unsigned int line_number)
 */
 void swap_monty(stack_t **head, unsigned int line_number)
 {
+	stack_t *first, *second;
 
 	if (*head == NULL|| (*head)->next == NULL)
 	{
 	fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 	exit(EXIT_FAILURE);
 	}
-
+	first = (*head);
+	second = (*head)->next;
+	first->next = second->next;
+	first->prev = second;
+	second->next->prev = first;
+	second->prev = NULL;
+	second->next = first;
+	(*head) = second;
 }
 
 /**
