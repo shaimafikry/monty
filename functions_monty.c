@@ -12,7 +12,6 @@ void push_monty(stack_t **head, char *value,  unsigned int line_number)
 int i;
 if (value == NULL)
 {
-	free_list(&(*head));
 	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
 }
@@ -23,7 +22,6 @@ for (i = 0; value[i]; i++)
 		continue;
 	if (!isdigit(value[i]))
 	{
-		free_list(&(*head));
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
