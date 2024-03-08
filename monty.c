@@ -21,11 +21,11 @@ if (list == NULL)
 	fprintf(stderr, "Error: malloc failed\n"), exit(EXIT_FAILURE);
 *list = NULL;
 if (argc != 2)
-	fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
+	free_list(&(*list)), fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 
 monty_file = fopen(file_name, "r");
 if (!monty_file)
-	fprintf(stderr, "Error: Can't open file %s\n", file_name), exit(EXIT_FAILURE);
+	free_list(&(*list)), fprintf(stderr, "Error: Can't open file %s\n", file_name), exit(EXIT_FAILURE);
 
 while (1)
 {
@@ -47,5 +47,5 @@ while (1)
 	}
 fclose(monty_file);
 free(orders);
-free_list(&(*list)), free(list);
+free_list(&(*list));
 return (0); }

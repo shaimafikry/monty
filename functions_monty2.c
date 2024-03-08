@@ -13,6 +13,7 @@ void add_monty(stack_t **head, unsigned int line_number)
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
+	free_list(&(*head));
 	fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 	exit(EXIT_FAILURE);
 	}
@@ -34,4 +35,5 @@ void add_monty(stack_t **head, unsigned int line_number)
 void nop_monty(__attribute__((unused)) stack_t **head,
 __attribute__((unused))  unsigned int line_number)
 {
+	
 }

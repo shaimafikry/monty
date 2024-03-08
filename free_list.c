@@ -7,7 +7,7 @@
 
 void free_list(stack_t **head)
 {
-	stack_t *current, *next;
+	stack_t *current = NULL, *next = NULL;
 
 	if (*head == NULL)
 		return;
@@ -20,5 +20,4 @@ void free_list(stack_t **head)
 	}
 	free(next);
 	free(head);
-	free(*head);
 }

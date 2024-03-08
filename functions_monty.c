@@ -12,6 +12,7 @@ void push_monty(stack_t **head, char *value,  unsigned int line_number)
 int i;
 if (value == NULL)
 {
+	free_list(&(*head));
 	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
 }
@@ -22,12 +23,13 @@ for (i = 0; value[i]; i++)
 		continue;
 	if (!isdigit(value[i]))
 	{
+		free_list(&(*head));
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
 }
-add_node_first(&(*head), atoi(value));
+	add_node_first(&(*head), atoi(value));
 }
 
 /**
@@ -40,16 +42,20 @@ void pall_monty(stack_t **head,
 __attribute__((unused)) unsigned int line_number)
 {
 stack_t *current = NULL;
-if (head != NULL)
-{
-current = *head;
 
-while (current != NULL)
-{
-	printf("%d\n", current->n);
-	current = current->next;
-}
-}
+	if (head == NULL)
+	{
+		free_list(&(*head));
+		return;
+	}
+
+	current = *head;
+
+	while (current != NULL)
+	{
+		printf("%d\n", current->n);
+		current = current->next;
+	}
 }
 /**
 * pint_monty - to print the first stack value
@@ -61,6 +67,7 @@ void pint_monty(stack_t **head, unsigned int line_number)
 {
 if (*head == NULL)
 {
+	free_list(&(*head));
 	fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 	exit(EXIT_FAILURE);
 	}
@@ -79,6 +86,7 @@ void pop_monty(stack_t **head, unsigned int line_number)
 
 	if (*head == NULL)
 	{
+	free_list(&(*head));
 	fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 	exit(EXIT_FAILURE);
 	}
@@ -99,6 +107,7 @@ void swap_monty(stack_t **head, unsigned int line_number)
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
+	free_list(&(*head));
 	fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 	exit(EXIT_FAILURE);
 	}
