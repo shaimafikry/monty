@@ -48,4 +48,5 @@ while (1)
 fclose(monty_file);
 free(orders);
 free(list);
+free_list(&(*list));
 return (0); }
